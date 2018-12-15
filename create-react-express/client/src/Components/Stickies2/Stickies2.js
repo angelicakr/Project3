@@ -7,7 +7,6 @@ import ReactStickies from 'react-stickies'; //ES6
  
 class Stickies2 extends Component {
   
-  
     constructor(props) {
       super(props);
       this.state = {
@@ -35,6 +34,7 @@ class Stickies2 extends Component {
       <ReactStickies
         notes={this.state.notes}
         onChange={this.onChange}
+
       />
     )
   }
