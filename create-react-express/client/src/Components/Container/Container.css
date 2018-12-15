@@ -1,4 +1,14 @@
 .container {
-   
+  background-color: red;
+    display: flex;
+    min-height: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+
+    width: 90%;
+    margin: 0 auto;
+    z-index: -1;
   }
   

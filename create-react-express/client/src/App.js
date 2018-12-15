@@ -1,9 +1,7 @@
 import React, { Component} from 'react';
-import Header from "./Components/Header/Header.js" 
+import Stickies2 from "./Components/Stickies2/Stickies2.js" 
 
-// const App = () => <Stickies/>;
 class App extends Component {
-    render() { return (<Header/>)}
+    render() { return (<Stickies2/>)}
 }
-
 export default App;
