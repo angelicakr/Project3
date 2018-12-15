@@ -3,4 +3,6 @@ var router = express.Router();
 const db = require ('./db');
 const mongoose = require('mongoose');
 
-// Routes for getting home 
+// Route for creating an account  
+// Route for (home) login screen
+// Route to main app
