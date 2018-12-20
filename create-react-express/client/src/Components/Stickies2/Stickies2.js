@@ -2,8 +2,10 @@
 import React, { Component } from "react";
 import "../Container";
 import "./Stickies2.css";
-
 import ReactStickies from 'react-stickies'; //ES6
+import {Header} from "../Header";
+
+
  
 class Stickies2 extends Component {
   
@@ -31,11 +33,14 @@ class Stickies2 extends Component {
     }
     render() {
     return (
+      <div>  
+      <Header />
       <ReactStickies
         notes={this.state.notes}
         onChange={this.onChange}
-
       />
+       </div>  
+    
     )
   }
 };
