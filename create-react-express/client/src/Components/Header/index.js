@@ -8,6 +8,9 @@ export class Header extends Component {
 
         return (
         <div>
+      
+         <button className="logout">Log Out</button>
+         <div className = "welcome">Welcome Username</div>   
         <div className = "header">  
         </div>  
 

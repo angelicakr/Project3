@@ -2,42 +2,40 @@
 import React, { Component } from "react";
 import "../Container";
 import "./Stickies2.css";
-import ReactStickies from 'react-stickies'; //ES6
 import {Header} from "../Header";
+import {PostitNote} from "../PostitNote";
+import {Formname} from "../Form";
 
 
  
 class Stickies2 extends Component {
-  
-    constructor(props) {
-      super(props);
-      this.state = {
-        notes: []
-      }
-      this.onChange = this.onChange.bind(this);
-      this.onSave = this.onSave.bind(this);
-    }  
-    onSave () {
-      // Make sure to delete the editorState before saving to backend
-      const notes = this.state.notes;
-      notes.map(note => {
-        delete note.editorState;
-      });
-      // Make service call to save notes
-      // Code goes here...
-    }
-    onChange (notes) {
-      this.setState({ // Update the notes state
-        notes
-      });
-    }
+
+
+
+  state = {
+    fields: {}, 
+  }
+
+  onSubmit = (fields) => { 
+    this.setState({ fields})
+    console.log('App comp got fields', fields);
+  }
+    
+
+    
     render() {
+
+ 
     return (
       <div>  
       <Header />
-      <ReactStickies
-        notes={this.state.notes}
-        onChange={this.onChange}
+      <Formname onSubmit = {fields => this.onSubmit(fields)}/>
+      <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+      <PostitNote
+
+      
+    
+
       />
        </div>  
     
