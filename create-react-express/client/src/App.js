@@ -1,11 +1,11 @@
 import React, { Component} from 'react';
-import Stickies2 from "./Components/Stickies2/Stickies2.js" 
+import Main from "./Components/Main/Main.js" 
 
 class App extends Component {
     render() { return  (
 
     <div>
-    <Stickies2/>
+    <Main/>
     </div>
     )}
 }

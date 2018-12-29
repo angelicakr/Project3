@@ -1,14 +1,14 @@
 
 import React, { Component } from "react";
 import "../Container";
-import "./Stickies2.css";
+import "./Main.css";
 import {Header} from "../Header";
 import {PostitNote} from "../PostitNote";
 import {Formname} from "../Form";
 
 
  
-class Stickies2 extends Component {
+class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {biller: 'Spotify', fields: null }
@@ -34,8 +34,6 @@ class Stickies2 extends Component {
     console.log('App comp got fields', fields);
   }
     
-
-    
     render() {
 
  
@@ -45,7 +43,7 @@ class Stickies2 extends Component {
       <p>{JSON.stringify(this.state.fields, null, 2)}</p>
 
 
-      <Formname onSubmit = {fields => this.onSubmit(fields)}/>
+      <Formname onSubmit = {fields => this.onSubmit(fields)} />
 
 
   <PostitNote biller = {this.state.biller} dateDue = {this.state.dateDue} amountPaying = {this.state.amountPaying} > 
@@ -58,5 +56,5 @@ class Stickies2 extends Component {
 };
 
 
-export default Stickies2;
+export default Main;
 

@@ -5,9 +5,6 @@ import "./PostitNote.css";
 
 
 
-
-
-
 export const PostitNote = props => (
     <div>
     <div  role="img"
@@ -16,8 +13,6 @@ export const PostitNote = props => (
      <div className = "topBar">
      <span className="x">X</span>
      <p> {props.biller} </p>
-
-
      </div>
      <p> {props.dateDue} </p>
      <p> {props.amountPaying} </p>
