@@ -1,10 +1,10 @@
 
 import React, { Component } from "react";
 import "../Container";
-import "./Main.css";
 import {Formname} from "../Form";
 import { PostitNote } from "../PostitNote";
 import { Header } from "../Header";
+import "./Main.css";
  
 export default class Main extends Component {
   constructor() { 

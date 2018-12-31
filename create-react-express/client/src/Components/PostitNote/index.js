@@ -11,6 +11,11 @@ export class PostitNote extends Component {
             className={'PostitNote'} >
             
             <ul>
+            <div className = "topBar">
+            <button onClick={this.props.delete}>X</button>
+                
+                </div>
+
            <h1>  
            {this.props.biller} 
            </h1>   
@@ -24,7 +29,7 @@ export class PostitNote extends Component {
     
             {this.props.body}
  
-            <button onClick={this.props.delete}>Delete</button>
+            
             </ul>
             </div>
             

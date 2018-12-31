@@ -1,10 +1,16 @@
 
+
+
+button { 
+    background-color: pink;
+    float: right;
+    outline: pink;
+
+}
 .PostitNote {
-    width: 250px;
-    height: 250px;
+    height: 200px;
     margin-right: 20px;
     margin-bottom: 20px;
-    background-size: cover;
     border-radius: 5px;
     background-color: pink;
     border-top: 30px;
@@ -13,7 +19,8 @@
 h5 { 
 
     font-size: 30px;
-    margin: 5px;
+    
+    text-align: center;
 }
 
 .x {
@@ -21,18 +28,12 @@ h5 {
     padding: 10px;
 }
 
-.topBar { 
 
-    width: 250px; 
-    background-color: magenta; 
-    height: 50px;
-    float: right;
-}
 .PostitNote:hover {
     border: 4px solid darkslategrey;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 350px) {
 
     .PostitNote {
         height: 100px;
