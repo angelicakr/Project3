@@ -47,7 +47,7 @@ export class Formname extends Component {
               <Label>Who are you paying?</Label>
               <Input
                 name ="biller"
-                placeholder="Spotify.cpm"
+                placeholder="Spotify.com"
                 value={this.state.biller}
                 onChange={e => this.change(e)}
               />

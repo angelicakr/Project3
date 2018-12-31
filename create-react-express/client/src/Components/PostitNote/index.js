@@ -10,19 +10,22 @@ export class PostitNote extends Component {
             <div role="img"
             className={'PostitNote'} >
             
-            <li>
-           biller = {this.props.biller} 
-           <br></br>
-           Days due ={this.props.dateDue} 
-           <br></br>
-            amountPaying = {this.props.amountPaying} 
-            <br></br>
-            id = {this.props.id}
-            <br/>
+            <ul>
+           <h1>  
+           {this.props.biller} 
+           </h1>   
+           <h5>
+           Date due:{this.props.dateDue} 
+           </h5>
+    
+           <h5>
+           Amount Due: {this.props.amountPaying} 
+           </h5>
+    
             {this.props.body}
-            <br/>
+ 
             <button onClick={this.props.delete}>Delete</button>
-            </li>
+            </ul>
             </div>
             
                 );

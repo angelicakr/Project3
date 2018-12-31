@@ -38,7 +38,6 @@ export default class Main extends Component {
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
       id: this.postID,
-      body: this.state.Body,
       
      })
      this.setState({ 
