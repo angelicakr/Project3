@@ -15,13 +15,6 @@ export default class Main extends Component {
     this.state = { 
       postArray : [ 
       ], 
-      Body : "",
-      id : "",
-      biller: "",
-      dateDue: "", 
-      amountPaying:""
-
-
     }
   }
         
@@ -75,8 +68,7 @@ export default class Main extends Component {
               <PostitNote 
               key = {post.id}
               id={post.id}
-              body={post.body}
-              biller={post.biller}
+              biller = {this.state.biller} dateDue = {this.state.dateDue} amountPaying = {this.state.amountPaying}
               delete={this.deleteEvent.bind(this, index)}
               />
 
