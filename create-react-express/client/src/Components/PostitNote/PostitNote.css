@@ -33,18 +33,3 @@ h5 {
     border: 4px solid darkslategrey;
 }
 
-@media (max-width: 350px) {
-
-    .PostitNote {
-        height: 100px;
-        width: 100px;
-    }
-}
-
-@media (max-width: 400px) {
-
-    .PostitNote {
-        height: 75px;
-        width: 75px;
-    }
-}
