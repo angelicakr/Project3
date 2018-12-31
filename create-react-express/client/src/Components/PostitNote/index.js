@@ -1,29 +1,36 @@
 import React from "react";
+import {Component} from "react";
 import "./PostitNote.css";
-import "./PostitNote.css";
 
 
+export class PostitNote extends Component {
+    render() { 
+
+        return (
+            <div role="img"
+            className={'PostitNote'} >
+            
+            <li>
+           biller = {this.props.biller} 
+           <br></br>
+           Days due ={this.props.dateDue} 
+           <br></br>
+            amountPaying = {this.props.amountPaying} 
+            <br></br>
+            id = {this.props.id}
+            <br/>
+            {this.props.body}
+            <br/>
+            <button onClick={this.props.delete}>Delete</button>
+            </li>
+            </div>
+            
+                );
+    }
+
+}
 
 
-export const PostitNote = props => (
-    <div>
-    <div  role="img"
-        className={`PostitNote ${props.animate? "animated wobble": ""}`} >
-       
-     <div className = "topBar">
-     <span className="x">X</span>
-     <p> {props.biller} </p>
-     </div>
-     <p> {props.dateDue} </p>
-     <p> {props.amountPaying} </p>
-
-
-    </div>
-</div>
-
-
-
-);
 
 
 

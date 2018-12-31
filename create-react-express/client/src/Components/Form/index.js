@@ -98,7 +98,7 @@ export class Formname extends Component {
                   onChange={e => this.change(e)}  />
             </FormGroup>
           </Col>
-          <Button onClick={e => this.onSubmit(e)}>Submit</Button>
+          <Button onClick={e => this.onSubmit(e)} >Submit</Button>
         </Form>
       </Container>
     );

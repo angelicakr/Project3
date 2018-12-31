@@ -2,59 +2,96 @@
 import React, { Component } from "react";
 import "../Container";
 import "./Main.css";
-import {Header} from "../Header";
-import {PostitNote} from "../PostitNote";
 import {Formname} from "../Form";
-
-
+import { PostitNote } from "../PostitNote";
+import { Header } from "../Header";
  
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {biller: 'Spotify', fields: null }
-    this.state = {dateDue: 'Spotify', fields: null }
-    this.state = {amountPaying: 'Spotify', fields: null }
+export default class Main extends Component {
+  constructor() { 
+
+    
+    super();
+    this.postID = 0;
+    this.state = { 
+      postArray : [ 
+      ], 
+      Body : "",
+      id : "",
+      biller: "",
+      dateDue: "", 
+      amountPaying:""
 
 
+    }
+  }
+        
+   deleteEvent = (index)=> { 
+     const copyPostArray = Object.assign([], this.state.postArray);
+     copyPostArray.splice(index, 1); 
+     this.setState({ 
+       postArray : copyPostArray
+     })
 
-   }
-
- // state = {
-  //  fields: {}, 
-  //}
-
-  onSubmit = (fields) => { 
+   }   
+   
+  
+   addPost = (fields)=> { 
     this.setState({ biller: fields.biller });
     this.setState({ dateDue: fields.dateDue });
     this.setState({ amountPaying: fields.amountPaying });
+   
 
-    console.log(this.state.dateDue);
+     this.postID = this.postID + 1; 
+     const copyPostArray = Object.assign([], this.state.postArray) 
+     copyPostArray.push({ 
+      id: this.postID,
+      body: this.state.Body,
+      
+     })
+     this.setState({ 
+       postArray : copyPostArray
 
-        console.log(this.state.biller);
-    console.log('App comp got fields', fields);
-  }
+     })
     
-    render() {
 
- 
-    return (
-      <div>  
-      <Header />
-      <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+   }
+        render() {
+        return (
+
+          <div>
+
+          <Header/>
+          
+          <Formname onSubmit = {fields => this.addPost(fields)} 
+           />
+       
+
+          
+
+          <ul>
+            {
+          this.state.postArray.map((post, index)=>{ 
+            return( 
+              <PostitNote 
+              key = {post.id}
+              id={post.id}
+              body={post.body}
+              biller={post.biller}
+              delete={this.deleteEvent.bind(this, index)}
+              />
+
+            )
+
+          })    
+         
+            }
+          </ul>
+        </div>
+        );
+      }
+
+}
 
 
-      <Formname onSubmit = {fields => this.onSubmit(fields)} />
 
-
-  <PostitNote biller = {this.state.biller} dateDue = {this.state.dateDue} amountPaying = {this.state.amountPaying} > 
-
- </PostitNote>
-       </div>  
-    
-    )
-  }
-};
-
-
-export default Main;
 
