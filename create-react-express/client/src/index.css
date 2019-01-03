@@ -1,7 +1,11 @@
 body {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   background-color: blue; 
+=======
+  background-color: white; 
+>>>>>>> f645471f0ca1a9c5148020c8e32ee21a832c80e4
   font-family: sans-serif;
 }
 

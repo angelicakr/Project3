@@ -19,10 +19,21 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.4.0"
+=======
+    "bootstrap": "4.2.1",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "react": "^16.7.0",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.7.0",
+    "react-stickies": "0.0.16",
+    "reactstrap": "^6.5.0"
+>>>>>>> f645471f0ca1a9c5148020c8e32ee21a832c80e4
   }
 }

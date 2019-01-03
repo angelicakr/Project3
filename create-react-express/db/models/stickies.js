@@ -13,5 +13,7 @@ const stickySchema = new Schema({
 	
 });
 
+//db.stickySchema
+
 const Sticky = mongoose.model('Sticky', stickySchema);
 module.exports = Sticky;

@@ -1,0 +1,35 @@
+
+
+
+button { 
+    background-color: pink;
+    float: right;
+    outline: pink;
+
+}
+.PostitNote {
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: pink;
+    border-top: 30px;
+}
+
+h5 { 
+
+    font-size: 30px;
+    
+    text-align: center;
+}
+
+.x {
+    float:right;
+    padding: 10px;
+}
+
+
+.PostitNote:hover {
+    border: 4px solid darkslategrey;
+}
+
