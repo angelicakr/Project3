@@ -28,10 +28,14 @@ export default class Main extends Component {
    }   
    
   
-   addPost = (fields)=> { 
-    this.setState({ biller: fields.biller });
-    this.setState({ dateDue: fields.dateDue });
-    this.setState({ amountPaying: fields.amountPaying });
+   addPost = (fields) => {
+    this.setState({ 
+      biller: fields.biller,
+      dateDue: fields.dateDue,
+      amountPaying: fields.amountPaying
+    });
+
+
    
 
      this.postID = this.postID + 1; 
