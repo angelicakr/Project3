@@ -11,7 +11,7 @@ export default class Main extends Component {
 
     
     super();
-    this.postID = 0;
+
     this.state = { 
       postArray : [ 
       ], 
@@ -34,11 +34,11 @@ export default class Main extends Component {
     this.setState({ amountPaying: fields.amountPaying });
    
 
-     this.postID = this.postID + 1; 
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
       id: this.postID,
-      
+      biller: this.state.biller
+    
      })
      this.setState({ 
        postArray : copyPostArray
@@ -57,18 +57,17 @@ export default class Main extends Component {
           <Formname onSubmit = {fields => this.addPost(fields)} 
            />
        
-
-          
-
           <ul>
             {
           this.state.postArray.map((post, index)=>{ 
+            console.log(post);
             return( 
               <PostitNote 
-              key = {post.id}
-              id={post.id}
-              biller = {this.state.biller} dateDue = {this.state.dateDue} amountPaying = {this.state.amountPaying}
-              delete={this.deleteEvent.bind(this, index)}
+                key = {post.id}
+                id={post.id}
+                biller = {post.biller} dateDue = {this.state.dateDue}
+                amountPaying = {this.state.amountPaying}
+                delete={this.deleteEvent.bind(this, index)}
               />
 
             )

@@ -77,15 +77,17 @@ export class Formname extends Component {
           </Col>
 
           <Col>
-            <FormGroup>
-              <Label>Is this a reoccuring payment?</Label>
-              <Input
-                name="reoccuring"
-                placeholder="yes or no"
-                value={this.state.reoccuring}
-                onChange={e => this.change(e)}
-              />
-            </FormGroup>
+          <Label for="exampleSelect">Is this a reoccuring payment?</Label>
+          <Input type="select" name="reoccuring" 
+           placeholder="yes or no"
+           value={this.state.reoccuring}
+           onChange={e => this.change(e)}>
+            <option>Yes</option>
+            <option>No</option>
+          
+          </Input>
+
+
           </Col>
 
           <Col>
