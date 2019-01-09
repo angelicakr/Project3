@@ -1,7 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import "./PostitNote.css";
-
+import {DayPicker} from "../DayPicker";
 
 export class PostitNote extends Component {
     render() { 
@@ -16,11 +16,11 @@ export class PostitNote extends Component {
                 
                 </div>
 
-           <h1>  
+           <h2>  
            {this.props.biller} 
-           </h1>   
+           </h2>   
            <h5>
-           Date due:{this.props.dateDue} 
+           Date due:{this.props.selectedDay} 
            </h5>
     
            <h5>

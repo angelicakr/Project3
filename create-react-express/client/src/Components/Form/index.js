@@ -6,6 +6,10 @@ import {
   FormGroup, Label, Input,
   Button,
 } from 'reactstrap';
+import DayPicker from '../DayPicker';
+import Moment from 'react-moment';
+
+
 
 export class Formname extends Component {
 
@@ -18,7 +22,7 @@ export class Formname extends Component {
 
       state = { 
           biller: "", 
-          dateDue: "", 
+          selectedDay: "", 
           amountPaying: "", 
           amountPaying: "", 
           reoccuring: "", 
@@ -32,11 +36,12 @@ export class Formname extends Component {
         });
     }; 
 
-      
+    
     
   render() {
     return (
       <Container className="App">
+     
       
         <Form className="form">
         <Col>
@@ -45,6 +50,7 @@ export class Formname extends Component {
           <Col>
             <FormGroup>
               <Label>Who are you paying?</Label>
+              <br></br>
               <Input
                 name ="biller"
                 placeholder="Spotify.com"
@@ -53,20 +59,25 @@ export class Formname extends Component {
               />
             </FormGroup>
           </Col>
+         
           <Col>
             <FormGroup>
+              
               <Label>When is your next Bill Due?</Label>
-              <Input
-                name="dateDue"
-                placeholder="January 2018"
-                value={this.state.dateDue}
-                onChange={e => this.change(e)}
-              />
+            
+               <DayPicker
+               name="selectedDay"
+               value={this.state.selectedDay}
+               onChange={e => this.change(e)}
+
+               ></DayPicker>
             </FormGroup>
           </Col>
+      
           <Col>
             <FormGroup>
               <Label for="examplePassword">What amount are you paying?</Label>
+              <br></br>
               <Input
                 name="amountPaying"
                   placeholder="$20.00"
@@ -76,8 +87,19 @@ export class Formname extends Component {
             </FormGroup>
           </Col>
 
+
+          <Col>  
+          <FormGroup>
+
+          </FormGroup>
+
+          </Col>
+
           <Col>
+          <FormGroup>
           <Label for="exampleSelect">Is this a reoccuring payment?</Label>
+          <br></br>
+          
           <Input type="select" name="reoccuring" 
            placeholder="yes or no"
            value={this.state.reoccuring}
@@ -86,18 +108,25 @@ export class Formname extends Component {
             <option>No</option>
           
           </Input>
-
+          </FormGroup>
 
           </Col>
 
           <Col>
             <FormGroup>
-              <Label>How often does this repayment occur?</Label>
-              <Input
+              <Label for="exampleSelect">How often does this repayment occur?</Label>
+              <br></br>
+              <Input type="select"
                   name="howOften"
                   placeholder="30 days"
                   value={this.state.howOften}
-                  onChange={e => this.change(e)}  />
+                  onChange={e => this.change(e)}>
+                  <option>Daily</option>
+                  <option>Weekly</option>
+                  <option>Bi-Weekly</option>
+                  <option>Monthly</option>
+                  <option>Yearly</option>
+               </Input>   
             </FormGroup>
           </Col>
           <Button onClick={e => this.onSubmit(e)} >Submit</Button>
@@ -106,4 +135,6 @@ export class Formname extends Component {
     );
   }
 }
+
+
 
