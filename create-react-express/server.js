@@ -21,6 +21,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+//connect to MongoDB
+
+const MONGO_LOCAL_URL = "mongodb://localhost:27017/sticky";
+const MONGO_URL = process.env.MONGODB_URI || MONGO_LOCAL_URL;
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(MONGO_URL)
+.then(() => console.log("Connected to database(MongoDB)"))
+.catch(err => console.log(err));
+
+app.use(routes);
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

@@ -5,7 +5,7 @@ import {Formname} from "../Form";
 import { PostitNote } from "../PostitNote";
 import { Header } from "../Header";
 import "./Main.css";
- 
+import axios from "axios";
 export default class Main extends Component {
   constructor() { 
 
@@ -34,6 +34,8 @@ export default class Main extends Component {
       dateDue: fields.dateDue,
       amountPaying: fields.amountPaying
     });
+
+    axios.post('/api/stickies', fields)
 
 
    
