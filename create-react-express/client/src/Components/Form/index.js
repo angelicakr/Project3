@@ -7,8 +7,6 @@ import {
   Button,
 } from 'reactstrap';
 import DayPicker from '../DayPicker';
-import Moment from 'react-moment';
-
 
 
 export class Formname extends Component {

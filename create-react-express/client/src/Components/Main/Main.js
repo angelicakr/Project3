@@ -5,8 +5,7 @@ import {Formname} from "../Form";
 import { PostitNote } from "../PostitNote";
 import { Header } from "../Header";
 import "./Main.css";
-import Moment from 'react-moment';
-
+import axios from "axios";
 export default class Main extends Component {
   constructor() { 
 
@@ -35,6 +34,12 @@ export default class Main extends Component {
       amountPaying: fields.amountPaying
     });
 
+    axios.post('/api/stickies', fields)
+
+
+   
+
+     this.postID = this.postID + 1; 
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
       id: this.postID,
