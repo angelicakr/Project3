@@ -20,7 +20,10 @@ export class PostitNote extends Component {
            {this.props.biller} 
            </h2>   
            <h5>
-           Date due:{this.props.selectedDay} 
+            {/*  Date due:{this.props.selectedDay} */}
+           </h5>
+           <h5>
+           You have {this.props.daysLeft} days left
            </h5>
     
            <h5>

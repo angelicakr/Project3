@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import "./form.css";
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 import {
   Container, Col, Form,
@@ -10,7 +12,6 @@ import DayPicker from '../DayPicker';
 
 
 export class Formname extends Component {
-
 
     onSubmit = e => { 
       e.preventDefault();
@@ -28,11 +29,20 @@ export class Formname extends Component {
       }
 
     change = (e) => {
+      console.log("EVENT:  ", e.target.value)
         this.setState({
             [e.target.name]: e.target.value
 
         });
     }; 
+
+    changeDay = (day) => {
+      console.log('22222222')
+      console.log(day)
+      this.setState({
+        selectedDay: day.toString()
+    });
+    }
 
     
     
@@ -65,6 +75,7 @@ export class Formname extends Component {
             
                <DayPicker
                name="selectedDay"
+               changeDay={this.changeDay}
                value={this.state.selectedDay}
                onChange={e => this.change(e)}
 

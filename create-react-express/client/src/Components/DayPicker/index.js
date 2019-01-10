@@ -2,7 +2,6 @@
 import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
-import Moment from 'react-moment';
 
 export default class DayPicker extends React.Component {
   constructor(props) {
@@ -12,9 +11,13 @@ export default class DayPicker extends React.Component {
       selectedDay: undefined,
     };
   }
+
   handleDayChange(day) {
-    this.setState({ selectedDay: day });
+    console.log('111111111')
+    this.props.changeDay(day);
   }
+  
+  
   render() {
     const { selectedDay } = this.state;
 
