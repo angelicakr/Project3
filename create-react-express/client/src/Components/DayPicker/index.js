@@ -17,11 +17,9 @@ export default class DayPicker extends React.Component {
     this.props.changeDay(day);
   }
   
-  
   render() {
     const { selectedDay } = this.state;
 
-    
     return (
       <div>
 
