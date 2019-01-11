@@ -4,6 +4,15 @@ import "./PostitNote.css";
 
 
 export class PostitNote extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            delete: props.delete
+        }
+    }
+
     render() { 
 
         return (

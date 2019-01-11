@@ -23,7 +23,10 @@ export default class Main extends Component {
      copyPostArray.splice(index, 1); 
      this.setState({ 
        postArray : copyPostArray
-     })
+     });
+
+     axios.delete('/api/stickies/' + index)
+     //axios.delete('/api/login', accounts)
 
    }   
    
@@ -36,7 +39,7 @@ export default class Main extends Component {
     });
 
     axios.post('/api/stickies', fields)
-
+    // login axios.post('/api/login', accounts (accounts = fields making reference to login state))
 
    
 
