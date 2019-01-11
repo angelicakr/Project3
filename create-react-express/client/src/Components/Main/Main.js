@@ -29,8 +29,8 @@ export default class Main extends Component {
    
   
    addPost = (fields) => {
-
-    console.log(fields);
+    console.log("========: ", fields);
+    
 
     let duration =  moment().diff(fields.selectedDay.toString());
     var daysLeftnotrounded = moment.duration(duration).asDays();
@@ -43,19 +43,25 @@ export default class Main extends Component {
       amountPaying: fields.amountPaying,
       daysLeft: daysLeft,
     });
+   
+    fields.dateDue = fields.selectedDay.toString();
+    fields.daysLeft = daysLeft;
+    fields.reoccuring = fields.reoccuring === "Yes" ? true : false 
     axios.post('/api/stickies', fields);
     axios.get('api/stickies').then(stickyData => { 
+      console.log(stickyData);
     const copyPostArray = [];
-    stickyData.forEach(sticky => {
+    stickyData.data.forEach(sticky => {
      copyPostArray.push(sticky);
   
-    }).then(postArray => { 
-      this.setState({
-        postArray:postArray
-      })
-    })  
-
     })
+    return copyPostArray;  
+
+    }).then(array => {
+      this.setState({postArray:array});
+      console.log(this.state.postArray);
+    })
+
     this.postID = this.postID + 1; 
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
@@ -77,12 +83,12 @@ export default class Main extends Component {
           this.state.postArray.map((post, index)=>{ 
             console.log(index);
             return( 
-              <PostitNote  key = {post.id}
-              id={post.id}
-              biller = {this.state.biller} 
-              selectedDay = {this.state.selectedDay} 
+              <PostitNote  key = {post._id}
+              id={post._id}
+              biller = {post.biller} 
+              selectedDay = {post.dateDue} 
               daysLeft = {this.state.daysLeft}
-              amountPaying = {this.state.amountPaying}
+              amountPaying = {post.amountPaying}
               delete={this.deleteEvent.bind(this, index)}  >
               </PostitNote>
             )

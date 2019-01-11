@@ -9,8 +9,8 @@ const stickySchema = new Schema({
     amountPaying: { type: Number, unique: false },
     reoccuring: { type: String, unique: false },
     dateDue: { type: Date, unique: false },
-    howOften:{ type: Number, unique:false},
-	
+    howOften:{ type: String, unique:false},
+    daysLeft:{ type: String, unique:false}	
 });
 
 //db.stickySchema
