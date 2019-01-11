@@ -2,23 +2,17 @@ import React, { Component } from 'react';
 import "./form.css";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
-
 import {
   Container, Col, Form,
   FormGroup, Label, Input,
   Button,
 } from 'reactstrap';
 import DayPicker from '../DayPicker';
-
-
 export class Formname extends Component {
-
     onSubmit = e => { 
       e.preventDefault();
       this.props.onSubmit(this.state);
     };
-
-
       state = { 
           biller: "", 
           selectedDay: "", 
@@ -27,7 +21,6 @@ export class Formname extends Component {
           reoccuring: "", 
           howOften: "", 
       }
-
     change = (e) => {
       console.log("EVENT:  ", e.target.value)
         this.setState({
@@ -35,7 +28,6 @@ export class Formname extends Component {
 
         });
     }; 
-
     changeDay = (day) => {
       console.log('22222222')
       console.log(day)
@@ -43,14 +35,9 @@ export class Formname extends Component {
         selectedDay: day.toString()
     });
     }
-
-    
-    
   render() {
     return (
       <Container className="App">
-     
-      
         <Form className="form">
         <Col>
         <h2>Bill Info</h2>
@@ -67,10 +54,8 @@ export class Formname extends Component {
               />
             </FormGroup>
           </Col>
-         
           <Col>
             <FormGroup>
-              
               <Label>When is your next Bill Due?</Label>
             
                <DayPicker
@@ -78,11 +63,9 @@ export class Formname extends Component {
                changeDay={this.changeDay}
                value={this.state.selectedDay}
                onChange={e => this.change(e)}
-
                ></DayPicker>
             </FormGroup>
           </Col>
-      
           <Col>
             <FormGroup>
               <Label for="examplePassword">What amount are you paying?</Label>

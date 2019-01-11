@@ -1,7 +1,6 @@
 import React from "react";
 import {Component} from "react";
 import "./PostitNote.css";
-import {DayPicker} from "../DayPicker";
 
 export class PostitNote extends Component {
     render() { 
@@ -13,8 +12,7 @@ export class PostitNote extends Component {
             <ul>
             <div className = "topBar">
             <button onClick={this.props.delete}>X</button>
-                
-                </div>
+            </div>
 
            <h2>  
            {this.props.biller} 
