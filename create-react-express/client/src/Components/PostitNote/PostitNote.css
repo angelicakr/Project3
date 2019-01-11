@@ -18,18 +18,20 @@ button {
 
 h5 { 
 
-    font-size: 30px;
+    font-size: 20px;
     
+    text-align: center;
+}
+
+
+h2 { 
+    padding-top: 10px;
+    font-size: 20px;
     text-align: center;
 }
 
 .x {
     float:right;
     padding: 10px;
-}
-
-
-.PostitNote:hover {
-    border: 4px solid darkslategrey;
 }
 

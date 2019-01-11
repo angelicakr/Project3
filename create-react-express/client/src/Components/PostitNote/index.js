@@ -2,7 +2,6 @@ import React from "react";
 import {Component} from "react";
 import "./PostitNote.css";
 
-
 export class PostitNote extends Component {
 
     constructor(props) {
@@ -22,14 +21,16 @@ export class PostitNote extends Component {
             <ul>
             <div className = "topBar">
             <button onClick={this.props.delete}>X</button>
-                
-                </div>
+            </div>
 
-           <h1>  
+           <h2>  
            {this.props.biller} 
-           </h1>   
+           </h2>   
            <h5>
-           Date due:{this.props.dateDue} 
+            {/*  Date due:{this.props.selectedDay} */}
+           </h5>
+           <h5>
+           You have {this.props.daysLeft} days left
            </h5>
     
            <h5>
