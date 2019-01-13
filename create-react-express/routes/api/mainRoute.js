@@ -20,7 +20,7 @@ router.route("/stickies")
 
 // Looks for Matches with "/api/home/:id" to find stickies to update
 router
-  .route("/:id")
+  .route("/:_id")
   .get(stickyController.findById)
   .put(stickyController.update)
 

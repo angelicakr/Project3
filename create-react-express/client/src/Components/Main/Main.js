@@ -15,14 +15,15 @@ export default class Main extends Component {
       ], 
     }
   }
-   deleteEvent = (index)=> { 
+   deleteEvent = (index, _id)=> { 
+     console.log(_id);
      const copyPostArray = Object.assign([], this.state.postArray);
-     copyPostArray.splice(index, 1); 
+     copyPostArray.splice(_id, 1); 
      this.setState({ 
        postArray : copyPostArray
      });
 
-     axios.delete('/api/stickies/' + index)
+     axios.delete('/api/stickies/', _id)
      //axios.delete('/api/login', accounts)
 
    }   
@@ -65,7 +66,7 @@ export default class Main extends Component {
     this.postID = this.postID + 1; 
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
-      id: this.postID,
+      _id: this.postID,
       biller: this.state.biller
      })
      this.setState({ 
@@ -80,16 +81,16 @@ export default class Main extends Component {
            />
           <ul>
             {
-          this.state.postArray.map((post, index)=>{ 
+          this.state.postArray.sort((a, b)=>{return a.daysLeft - b.daysLeft}).map((post, index, id)=>{ 
             console.log(index);
             return( 
               <PostitNote  key = {post._id}
-              id={post._id}
+              _id={post._id}
               biller = {post.biller} 
               selectedDay = {post.dateDue} 
-              daysLeft = {this.state.daysLeft}
+              daysLeft = {post.daysLeft}
               amountPaying = {post.amountPaying}
-              delete={this.deleteEvent.bind(this, index)}  >
+              delete={this.deleteEvent.bind(this, index, post._id)}  >
               </PostitNote>
             )
           })    
