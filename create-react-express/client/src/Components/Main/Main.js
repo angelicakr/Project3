@@ -15,15 +15,15 @@ export default class Main extends Component {
       ], 
     }
   }
-   deleteEvent = (index, _id)=> { 
-     console.log(_id);
+   deleteEvent = (index, id)=> { 
+     console.log(id);
      const copyPostArray = Object.assign([], this.state.postArray);
-     copyPostArray.splice(_id, 1); 
+     copyPostArray.splice(index, 1); 
      this.setState({ 
        postArray : copyPostArray
      });
 
-     axios.delete('/api/stickies/', _id)
+     axios.delete('/api/stickies/', id)
      //axios.delete('/api/login', accounts)
 
    }   
@@ -66,7 +66,7 @@ export default class Main extends Component {
     this.postID = this.postID + 1; 
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
-      _id: this.postID,
+      id: this.postID,
       biller: this.state.biller
      })
      this.setState({ 
@@ -81,16 +81,16 @@ export default class Main extends Component {
            />
           <ul>
             {
-          this.state.postArray.sort((a, b)=>{return a.daysLeft - b.daysLeft}).map((post, index, id)=>{ 
+          this.state.postArray.sort((a, b)=>{return a.daysLeft - b.daysLeft}).map((post, index,)=>{ 
             console.log(index);
             return( 
-              <PostitNote  key = {post._id}
-              _id={post._id}
+              <PostitNote  key = {post.id}
+              id={post.id}
               biller = {post.biller} 
               selectedDay = {post.dateDue} 
               daysLeft = {post.daysLeft}
               amountPaying = {post.amountPaying}
-              delete={this.deleteEvent.bind(this, index, post._id)}  >
+              delete={this.deleteEvent.bind(this, index, post.id)}  >
               </PostitNote>
             )
           })    
