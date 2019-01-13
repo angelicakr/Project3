@@ -9,7 +9,9 @@ const stickyController = require("../../controllers/stickyController");
 // "/api/home" will show all current stickies 
 router.route("/stickies")
   .get(stickyController.findAll)
-  .post(stickyController.create);
+  .post(stickyController.create)
+  .delete(stickyController.remove)
+  .put(stickyController.update);
 
   // Matches with "/api/login"
 // router.route("/login")
@@ -18,7 +20,7 @@ router.route("/stickies")
 
 // Looks for Matches with "/api/home/:id" to find stickies to update
 router
-  .route("/:id")
+  .route("/:_id")
   .get(stickyController.findById)
   .put(stickyController.update)
 

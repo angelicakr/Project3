@@ -15,16 +15,23 @@ export default class Main extends Component {
       ], 
     }
   }
-   deleteEvent = (index)=> { 
+   deleteEvent = (index, _id)=> { 
+     console.log(_id);
      const copyPostArray = Object.assign([], this.state.postArray);
-     copyPostArray.splice(index, 1); 
+     copyPostArray.splice(_id, 1); 
      this.setState({ 
        postArray : copyPostArray
-     })
-   }  
-   addPost = (fields) => {
+     });
 
-    console.log(fields);
+     axios.delete('/api/stickies/', _id)
+     //axios.delete('/api/login', accounts)
+
+   }   
+   
+  
+   addPost = (fields) => {
+    console.log("========: ", fields);
+    
 
     let duration =  moment().diff(fields.selectedDay.toString());
     var daysLeftnotrounded = moment.duration(duration).asDays();
@@ -37,23 +44,29 @@ export default class Main extends Component {
       amountPaying: fields.amountPaying,
       daysLeft: daysLeft,
     });
+   
+    fields.dateDue = fields.selectedDay.toString();
+    fields.daysLeft = daysLeft;
+    fields.reoccuring = fields.reoccuring === "Yes" ? true : false 
     axios.post('/api/stickies', fields);
     axios.get('api/stickies').then(stickyData => { 
+      console.log(stickyData);
     const copyPostArray = [];
-    stickyData.forEach(sticky => {
+    stickyData.data.forEach(sticky => {
      copyPostArray.push(sticky);
   
-    }).then(postArray => { 
-      this.setState({
-        postArray:postArray
-      })
-    })  
-
     })
+    return copyPostArray;  
+
+    }).then(array => {
+      this.setState({postArray:array});
+      console.log(this.state.postArray);
+    })
+
     this.postID = this.postID + 1; 
      const copyPostArray = Object.assign([], this.state.postArray) 
      copyPostArray.push({ 
-      id: this.postID,
+      _id: this.postID,
       biller: this.state.biller
      })
      this.setState({ 
@@ -68,16 +81,16 @@ export default class Main extends Component {
            />
           <ul>
             {
-          this.state.postArray.map((post, index)=>{ 
+          this.state.postArray.sort((a, b)=>{return a.daysLeft - b.daysLeft}).map((post, index, id)=>{ 
             console.log(index);
             return( 
-              <PostitNote  key = {post.id}
-              id={post.id}
-              biller = {this.state.biller} 
-              selectedDay = {this.state.selectedDay} 
-              daysLeft = {this.state.daysLeft}
-              amountPaying = {this.state.amountPaying}
-              delete={this.deleteEvent.bind(this, index)}  >
+              <PostitNote  key = {post._id}
+              _id={post._id}
+              biller = {post.biller} 
+              selectedDay = {post.dateDue} 
+              daysLeft = {post.daysLeft}
+              amountPaying = {post.amountPaying}
+              delete={this.deleteEvent.bind(this, index, post._id)}  >
               </PostitNote>
             )
           })    
