@@ -18,7 +18,7 @@ export default class Main extends Component {
    deleteEvent = (index, _id)=> { 
      console.log(_id);
      const copyPostArray = Object.assign([], this.state.postArray);
-     copyPostArray.splice(_id, 1); 
+     copyPostArray.splice(index, 1); 
      this.setState({ 
        postArray : copyPostArray
      });

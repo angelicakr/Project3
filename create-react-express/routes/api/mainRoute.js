@@ -22,6 +22,7 @@ router.route("/stickies")
 router
   .route("/:_id")
   .get(stickyController.findById)
+  .delete(stickyController.remove)
   .put(stickyController.update)
 
 module.exports = router;
