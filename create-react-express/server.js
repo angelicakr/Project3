@@ -2,12 +2,18 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const routes = require('./routes')
+const routes = require('./routes');
+const passport = require('passport');
 const bodyParser = require ('body-parser');
 const db = require ('./db');
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5001;
 const app = express();
+
+const users = require('./controllers/user1');
+
+app.use(passport.initialize());
+require('./passport')(passport);
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
@@ -34,9 +40,16 @@ mongoose.connect(MONGO_URL)
 
 app.use(routes);
 
+// app.use('/api/users', users);
+
+// app.get('/', function(req, res) {
+//     res.send('hello');
+// });
+
 
 // Send every other request to the React app
 // Define any API routes before this runs
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

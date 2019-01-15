@@ -10,4 +10,7 @@ router.use("/api", apiRoutes);
 //   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 // });
 
+app.get('/', function(req, res) {
+    res.send('Login');
+});
 module.exports = router;

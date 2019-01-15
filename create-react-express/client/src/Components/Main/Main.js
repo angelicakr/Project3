@@ -56,7 +56,7 @@ export default class Main extends Component {
      copyPostArray.push(sticky);
   
     })
-    return copyPostArray;  
+    return copyPostArray; 
 
     }).then(array => {
       this.setState({postArray:array});
