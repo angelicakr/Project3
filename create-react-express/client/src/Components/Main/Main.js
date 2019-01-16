@@ -23,7 +23,7 @@ export default class Main extends Component {
        postArray : copyPostArray
      });
 
-     axios.delete('/api/stickies/', _id)
+     axios.delete('/api/' + _id) //api/yhg5rd43df5rv
      //axios.delete('/api/login', accounts)
 
    }   

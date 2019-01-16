@@ -15,7 +15,7 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
-      console.log('=========', req.body)
+      //console.log('=========', req.body)
       db.Sticky
         .create(req.body)
         .then(dbModel => res.json(dbModel))
@@ -28,9 +28,9 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     remove: function(req, res) {
-      console.log("======", req.params.id)
+     console.log("======", req.params._id)
       db.Sticky
-        .findOneAndDelete({ _id: req.params.id })
+        .findByIdAndRemove({ _id: req.params._id })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     }

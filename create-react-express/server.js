@@ -32,7 +32,7 @@ mongoose.connect(MONGO_URL)
 .then(() => console.log("Connected to database(MongoDB)"))
 .catch(err => console.log(err));
 
-app.use(routes);
+app.use('/api', routes);
 
 
 // Send every other request to the React app
