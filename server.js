@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 const jwt = require('jsonwebtoken');
@@ -8,7 +7,7 @@ const routes = require('./routes')
 const bodyParser = require ('body-parser');
 const db = require ('./db');
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 const app = express();
 
 // Setting CORS so that any website can
@@ -41,7 +40,6 @@ mongoose.Promise = global.Promise;
 mongoose.connect(MONGO_URL)
 .then(() => console.log("Connected to database(MongoDB)"))
 .catch(err => console.log(err));
-
 
 app.use('/api', routes);
 
