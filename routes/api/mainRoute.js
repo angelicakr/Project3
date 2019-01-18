@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const stickyController = require("../../controllers/stickyController");
-//const loginController = require("../../controllers/loginController");
+const loginController = require("../../controllers/loginController");
 
 // Route for creating an account  
 // Route for (home) login screen
