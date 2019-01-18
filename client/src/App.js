@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AuthService from './Pages/AuthService';
-import withAuth from './Pages/withAuth';
+import AuthService from './Components/AuthService';
+import withAuth from './Components/withAuth';
 import Navbar from './Components/Navbar';
 const Auth = new AuthService();
 
@@ -14,11 +14,11 @@ class App extends Component {
 
   handleLogout = () => {
     Auth.logout();
-    this.props.history.replace('/Signup');
+    this.props.history.replace('/signup');
   };
 
   goToEditProfile = () => {
-    this.props.history.replace('/Profile');
+    this.props.history.replace('/profile');
   };
 
   render() {
@@ -27,6 +27,7 @@ class App extends Component {
     return (
       <div className="App">
           <Navbar></Navbar>
+
      
 
         <div className="App-header">

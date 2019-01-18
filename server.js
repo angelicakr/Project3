@@ -5,7 +5,7 @@ const routes = require('./routes')
 const bodyParser = require ('body-parser');
 const db = require ('./db');
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 const app = express();
 
 // Bodyparser Middleware
@@ -30,6 +30,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect(MONGO_URL)
 .then(() => console.log("Connected to database(MongoDB)"))
 .catch(err => console.log(err));
+
+console.log("test")
 
 app.use('/api', routes);
 

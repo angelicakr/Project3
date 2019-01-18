@@ -36,6 +36,8 @@ class Login extends Component {
   };
 
   render() {
+    console.log("in login");
+
     return (
       <div className="container">
         <h1>Login</h1>

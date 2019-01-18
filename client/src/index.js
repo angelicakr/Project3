@@ -2,14 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+
 import registerServiceWorker from "./registerServiceWorker";
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import axios from "axios";
-import Navbar from "./Components/Navbar";
 
-import Login from './Pages/Login';
-import Profile from './Pages/Profile';
-import Signup from './Pages/Signup';
+
+import Login from './Components/Login';
+import Profile from './Components/Profile';
+import Signup from './Components/Signup';
+import Navbar from "./Components/Navbar";
 
 
 // Here is if we have an id_token in localStorage
@@ -24,13 +26,12 @@ ReactDOM.render(
         <div>
             <Navbar />
             <Route exact path="/" component={App} />
-            <Route exact path="/Login.js" component={Login} />
-            <Route exact path="/Signup.js" component={Signup} />
-            <Route exact path="/Profile.js" component={Profile} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Signup" component={Signup} />
+            <Route exact path="/Profile" component={Profile} />
         </div>
     </Router>
     , document.getElementById('root')
-
 
 
 );
