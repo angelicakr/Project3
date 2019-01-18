@@ -18,7 +18,7 @@ class App extends Component {
   };
 
   goToEditProfile = () => {
-    this.props.history.replace('/profile');
+    this.props.history.replace('/main');
   };
 
   render() {

@@ -9,9 +9,10 @@ import axios from "axios";
 
 
 import Login from './Components/Login';
-import Profile from './Components/Profile';
+//import Profile from './Components/Profile';
 import Signup from './Components/Signup';
 import Navbar from "./Components/Navbar";
+import Main from "./Components/Main/Main"
 
 
 // Here is if we have an id_token in localStorage
@@ -28,7 +29,7 @@ ReactDOM.render(
             <Route exact path="/" component={App} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/Signup" component={Signup} />
-            <Route exact path="/Profile" component={Profile} />
+            <Route exact path="/Main" component={Main} />
         </div>
     </Router>
     , document.getElementById('root')

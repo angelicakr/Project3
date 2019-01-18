@@ -1,13 +1,15 @@
 
 import React, { Component } from "react";
 import "../Container";
+import withAuth from '../withAuth';
 import {Formname} from "../Form";
 import { PostitNote } from "../PostitNote";
 import { Header } from "../Header";
 import "./Main.css";
 import axios from "axios";
 import moment from 'moment';
-export default class Main extends Component {
+
+class Main extends Component {
   constructor() { 
     super();
     this.state = { 
@@ -102,6 +104,6 @@ export default class Main extends Component {
 
 }
 
-
+export default withAuth(Main);
 
 

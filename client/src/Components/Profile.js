@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import withAuth from './withAuth';
+//import withAuth from './withAuth';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
 
@@ -34,4 +34,4 @@ class Profile extends Component {
   }
 }
 
-export default withAuth(Profile);
+//export default withAuth(Profile);
