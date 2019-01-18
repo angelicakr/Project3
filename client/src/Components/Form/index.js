@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./form.css";
-import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+
 import {
   Container, Col, Form,
   FormGroup, Label, Input,
@@ -87,40 +87,9 @@ export class Formname extends Component {
 
           </Col>
 
-          <Col>
-          <FormGroup>
-          <Label for="exampleSelect">Is this a reoccuring payment?</Label>
-          <br></br>
           
-          <Input type="select" name="reoccuring" 
-           placeholder="yes or no"
-           value={this.state.reoccuring}
-           onChange={e => this.change(e)}>
-            <option>Yes</option>
-            <option>No</option>
+
           
-          </Input>
-          </FormGroup>
-
-          </Col>
-
-          <Col>
-            <FormGroup>
-              <Label for="exampleSelect">How often does this repayment occur?</Label>
-              <br></br>
-              <Input type="select"
-                  name="howOften"
-                  placeholder="30 days"
-                  value={this.state.howOften}
-                  onChange={e => this.change(e)}>
-                  <option>Daily</option>
-                  <option>Weekly</option>
-                  <option>Bi-Weekly</option>
-                  <option>Monthly</option>
-                  <option>Yearly</option>
-               </Input>   
-            </FormGroup>
-          </Col>
           <Button onClick={e => this.onSubmit(e)} >Submit</Button>
         </Form>
       </Container>

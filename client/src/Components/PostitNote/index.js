@@ -15,8 +15,7 @@ export class PostitNote extends Component {
     render() { 
 
         return (
-            <div role="img"
-            className={'PostitNote'} >
+            <div role="img" className={'PostitNote'} >
             
             <ul>
             <div className = "topBar">

@@ -1,23 +1,45 @@
-import React, { Component} from 'react';
-import Main from "./Components/Main/Main.js" 
 
 
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import AuthService from './Pages/AuthService';
+import withAuth from './Pages/withAuth';
+import Navbar from './Components/Navbar';
+const Auth = new AuthService();
 
 class App extends Component {
-    render() { return  (
- 
-    <div>
-  {/*
-    <Router>
-    <Route exact path="/" component={ Home } />  
-    <Route exact path="/" component={ Login } />  
-    <Route exact path="/register" component={ Register } />
-    </Router>  
-  */ } 
-    <Main/>
 
 
-    </div>
-    )}
+
+  handleLogout = () => {
+    Auth.logout();
+    this.props.history.replace('/Signup');
+  };
+
+  goToEditProfile = () => {
+    this.props.history.replace('/Profile');
+  };
+
+  render() {
+
+    console.log(process.env.REACT_APP_SECRET_CODE);
+    return (
+      <div className="App">
+          <Navbar></Navbar>
+     
+
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome {this.props.user.email}</h2>
+        </div>
+        <p className="App-intro">
+          <button type="button" className="btn btn-primary" onClick={this.goToEditProfile}>Go to Profile</button>
+          <button type="button" className="btn btn-danger" onClick={this.handleLogout}>Logout</button>
+        </p>
+      </div>
+    );
+  }
 }
-export default App;
+
+export default withAuth(App);
