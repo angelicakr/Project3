@@ -1,11 +1,12 @@
 
 import React, { Component } from "react";
 import "../Container";
-import withAuth from '../withAuth';
+// import withAuth from '../withAuth';
 import {Formname} from "../Form";
 import { PostitNote } from "../PostitNote";
 import { Header } from "../Header";
 import "./Main.css";
+import withAuth from '../withAuth';
 import axios from "axios";
 import moment from 'moment';
 

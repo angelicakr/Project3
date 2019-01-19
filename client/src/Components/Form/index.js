@@ -43,7 +43,7 @@ export class Formname extends Component {
         <h2>Bill Info</h2>
         </Col>
           <Col>
-            <FormGroup>
+            <FormGroup className="question1">
               <Label>Who are you paying?</Label>
               <br></br>
               <Input
@@ -55,7 +55,7 @@ export class Formname extends Component {
             </FormGroup>
           </Col>
           <Col>
-            <FormGroup>
+            <FormGroup className="question2">
               <Label>When is your next Bill Due?</Label>
             
                <DayPicker
@@ -67,7 +67,7 @@ export class Formname extends Component {
             </FormGroup>
           </Col>
           <Col>
-            <FormGroup>
+            <FormGroup className="question3">
               <Label for="examplePassword">What amount are you paying?</Label>
               <br></br>
               <Input

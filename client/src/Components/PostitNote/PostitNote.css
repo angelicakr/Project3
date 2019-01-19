@@ -2,9 +2,10 @@
 
 
 button { 
-    background-color: pink;
+    background-color:lightpink;
     float: right;
-    outline: pink;
+    margin-top: 10px;
+    outline: lightpink;
 
 }
 .PostitNote {
